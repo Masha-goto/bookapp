@@ -1,0 +1,11 @@
+.article
+  %h1.article_title= @book.title
+  .article_detail
+    = image_tag 'default-avatar.png'
+    %div
+      %p masa
+      %p 2020/4/16
+  .article_content
+    = @book.content
+  .article_heart
+    = image_tag 'bookmark.svg'
