@@ -3,4 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :books, dependent: :destroy
+
+	# def display_name
+	# 	profile&.nickname || self.email.split('@').first
+	# end
 end
