@@ -16,7 +16,7 @@ class BooksController < ApplicationController
 	def create
 		@book = current_user.books.build(book_params)
 		if @book.save
-			redirect_to book_path(@book), notice: '保存できたよ'
+			redirect_to book_path(@book), notice: '保存できました'
 		else
 			flash.now[:error] = '保存に失敗しました'
 			render :new
@@ -37,6 +37,12 @@ class BooksController < ApplicationController
 			render :edit
 		end
 	end
+
+	def destroy
+    book = Book.find(params[:id])
+    book.destroy!
+    redirect_to root_path, notice: '削除に成功しました'
+  end
 
 	private
 	def book_params
