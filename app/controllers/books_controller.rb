@@ -1,28 +1,49 @@
 class BooksController < ApplicationController
+	before_action :set_book, only: [:show]
+	before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
 	def index
 		@books = Book.all
 	end
 
 	def show
-		@book = Book.find(params[:id])
 	end
 
 	def new
-		@book = Book.new
+		@book = current_user.books.build
 	end
 
-  def create
-    @book = Book.new(book_params)
-    if @book.save
+	def create
+		@book = current_user.books.build(book_params)
+		if @book.save
 			redirect_to book_path(@book), notice: '保存できたよ'
-    else
+		else
 			flash.now[:error] = '保存に失敗しました'
-      render :new
-    end
-  end
+			render :new
+		end
+	end
 
-  private
-  def book_params
-    params.require(:book).permit(:title, :content)
-  end
+
+	def edit
+		@book = current_user.books.find(params[:id])
+	end
+
+	def update
+		@book = current_user.books.find(params[:id])
+		if @book.update(book_params)
+			redirect_to book_path(@book), notice: '更新できました'
+		else
+			flash.now[:error] = '更新できませんでした'
+			render :edit
+		end
+	end
+
+	private
+	def book_params
+		params.require(:book).permit(:title, :content)
+	end
+
+	def set_book
+		@book = Book.find(params[:id])
+	end
 end

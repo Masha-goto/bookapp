@@ -1,11 +1,17 @@
 .article
-  %h1.article_title= @book.title
-  .article_detail
-    = image_tag 'default-avatar.png'
-    %div
-      %p masa
-      %p 2020/4/16
-  .article_content
-    = @book.content
-  .article_heart
-    = image_tag 'bookmark.svg'
+	%h1.article_title= @book.title
+	.article_detail
+		= image_tag 'default-avatar.png'
+		%div
+			%p masa
+			%p 2020/4/16
+		.article_detail_actions
+			.dropdown
+				= image_tag 'actions.svg', class: 'dropbtn'
+				.dropdown-content.mini
+					= link_to '編集する', edit_book_path(@book)
+					= link_to '削除する', book_path(@book), data: { method: 'delete', confirm: '本当に削除してもよろしいですか?' }
+	.article_content
+		= @book.content
+	.article_heart
+		= image_tag 'bookmark.svg'
