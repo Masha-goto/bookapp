@@ -1,1 +1,14 @@
-<h1>home</h1>
+.container
+	.card
+		.card_image
+			= image_tag 'book.png'
+		.card_content
+			.card_title
+			.card_heart
+				= image_tag 'bookmark.svg'
+				%span= 23
+			.card_detail
+				= image_tag 'default-avatar.png'
+					%div
+						%p= 'masa'
+						%p= '2024.4.30'
