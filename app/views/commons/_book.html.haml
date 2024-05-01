@@ -7,7 +7,7 @@
 				= book.title
 			.card_heart
 				= image_tag 'bookmark.svg'
-				%span= 23
+				%span= book.bookmark_count
 			.card_detail
 				= image_tag book.user.avatar_image
 				%div

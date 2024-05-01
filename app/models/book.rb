@@ -5,9 +5,14 @@ class Book < ApplicationRecord
   validates :content, presence: true
 
 	belongs_to :user
+	has_many :bookmarks, dependent: :destroy
 
 	def display_created_at
     I18n.l(self.created_at, format: :default)
+	end
+
+	def bookmark_count
+		bookmarks.count
 	end
 
 	def author_name
