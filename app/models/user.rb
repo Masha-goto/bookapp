@@ -5,11 +5,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :books, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+	has_many :bookmarklists, through: :bookmarks, source: :book
 
   has_one :profile, dependent: :destroy
 
   def has_written?(book)
     books.exists?(id: book.id)
+  end
+
+  def has_bookmarked?(book)
+    bookmarks.exists?(book_id: book.id)
   end
 
   def prepare_profile

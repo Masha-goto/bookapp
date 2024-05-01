@@ -1,4 +1,7 @@
 .article
+	- if @book.eyecatch.attached?
+		.article_image
+			= image_tag @book.eyecatch
 	%h1.article_title= @book.title
 	.article_detail
 		= image_tag @book.user.avatar_image
@@ -14,5 +17,12 @@
 						= link_to '削除する', book_path(@book), data: { method: 'delete', confirm: '本当に削除してもよろしいですか?' }
 	.article_content
 		= @book.content
-	.article_heart
-		= image_tag 'bookmark.svg'
+	- if user_signed_in?
+		- if current_user.has_bookmarked?(@book)
+			.article_heart
+				= link_to book_bookmark_path(@book), data: { method: 'delete' } do
+					= image_tag 'bookmark-active.svg'
+		- else
+			.article_heart
+				= link_to book_bookmark_path(@book), data: { method: 'post' } do
+					= image_tag 'bookmark.svg'
