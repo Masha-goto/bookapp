@@ -14,7 +14,7 @@
 						= image_tag 'default-avatar.png'
 						%div
 							%p masa
-							%p 2024.4.30
+							%p= book.display_created_at
 	= link_to new_book_path do
 		.float_btn
 			%i.fa.fa-plus
