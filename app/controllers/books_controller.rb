@@ -39,10 +39,10 @@ class BooksController < ApplicationController
 	end
 
 	def destroy
-    book = current_user.books.find(params[:id])
-    book.destroy!
-    redirect_to root_path, notice: '削除に成功しました'
-  end
+		book = current_user.books.find(params[:id])
+		book.destroy!
+		redirect_to root_path, notice: '削除に成功しました'
+	end
 
 	private
 	def book_params

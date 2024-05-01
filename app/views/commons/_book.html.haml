@@ -1,0 +1,15 @@
+= link_to book_path(book) do
+	.card
+		.card_image
+			= image_tag 'book.png'
+		.card_content
+			.card_title
+				= book.title
+			.card_heart
+				= image_tag 'bookmark.svg'
+				%span= 23
+			.card_detail
+				= image_tag book.user.avatar_image
+				%div
+					%p= book.author_name
+					%p= book.display_created_at
