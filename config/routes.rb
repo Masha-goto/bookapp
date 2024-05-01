@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root to: 'books#index'
 
   resources :books
+
+  resource :profile, only: [:show, :edit, :update]
 end
