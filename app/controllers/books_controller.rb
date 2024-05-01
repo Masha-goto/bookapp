@@ -39,7 +39,7 @@ class BooksController < ApplicationController
 	end
 
 	def destroy
-    book = Book.find(params[:id])
+    book = current_user.books.find(params[:id])
     book.destroy!
     redirect_to root_path, notice: '削除に成功しました'
   end
