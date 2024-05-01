@@ -1,4 +1,7 @@
 .article
+	- if @book.eyecatch.attached?
+		.article_image
+			= image_tag @book.eyecatch
 	%h1.article_title= @book.title
 	.article_detail
 		= image_tag @book.user.avatar_image

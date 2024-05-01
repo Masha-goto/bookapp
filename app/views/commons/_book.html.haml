@@ -1,7 +1,8 @@
 = link_to book_path(book) do
 	.card
-		.card_image
-			= image_tag 'book.png'
+		- if book.eyecatch.attached?
+			.card_image
+				= image_tag book.eyecatch
 		.card_content
 			.card_title
 				= book.title
