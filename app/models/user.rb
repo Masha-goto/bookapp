@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :books, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+	has_many :bookmarklists, through: :bookmarks, source: :book
 
   has_one :profile, dependent: :destroy
 

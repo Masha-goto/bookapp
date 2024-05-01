@@ -1,0 +1,5 @@
+.container
+  %h2
+    ブックマークリスト
+  - @books.each do |book|
+    = render 'commons/book', book: book

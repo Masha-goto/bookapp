@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
 
   resource :profile, only: [:show, :edit, :update]
+  resources :bookmarklists, only: [:index]
 end
