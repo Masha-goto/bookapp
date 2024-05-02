@@ -1,12 +1,11 @@
 class Book < ApplicationRecord
 	has_one_attached :eyecatch
+	has_rich_text :content
 
 	validates :title, presence: true
 	validates :title, length: { minimum: 2, maximum: 100 }
 
   validates :content, presence: true
-	validates :content, length: { minimum: 10 }
-  validates :content, uniqueness: true
 
 	belongs_to :user
 	has_many :bookmarks, dependent: :destroy
