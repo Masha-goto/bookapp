@@ -1,4 +1,4 @@
-.article
+.article#book-show{data: {book_id: @book.id}}
 	- if @book.eyecatch.attached?
 		.article_image
 			= image_tag @book.eyecatch
@@ -18,11 +18,9 @@
 	.article_content
 		= @book.content
 	- if user_signed_in?
-		- if current_user.has_bookmarked?(@book)
-			.article_heart
-				= link_to book_bookmark_path(@book), data: { method: 'delete' } do
-					= image_tag 'bookmark-active.svg'
-		- else
-			.article_heart
-				= link_to book_bookmark_path(@book), data: { method: 'post' } do
-					= image_tag 'bookmark.svg'
+		.article_heart.hidden.active-bookmark
+			= image_tag 'bookmark-active.svg'
+		.article_heart.hidden.inactive-bookmark
+			= image_tag 'bookmark.svg'
+
+= javascript_pack_tag 'book'

@@ -1,6 +1,0 @@
-.container
-	- books.each do |book|
-		= render 'commons/book', book: book
-	= link_to new_book_path do
-		.float_btn
-			%i.fa.fa-plus
