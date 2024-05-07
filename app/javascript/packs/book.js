@@ -1,9 +1,9 @@
-
 import $ from 'jquery'
-import axios from 'axios'
-import { csrfToken } from 'rails-ujs'
-
-axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
+import axios from 'modules/axios'
+import {
+	listenInactiveBookmarkEvent,
+	listenActiveBookmarkEvent
+} from 'modules/handle_bookmark'
 
 const handleBookmarkDisplay = (hasBookmarked) => {
 	if (hasBookmarked) {
@@ -23,31 +23,6 @@ document.addEventListener('turbolinks:load', () => {
 			handleBookmarkDisplay(hasBookmarked)
 		})
 
-		$('.inactive-bookmark').on('click', () => {
-			axios.post(`/books/${bookId}/bookmark`)
-				.then((response) => {
-					if (response.data.status === 'ok') {
-						$('.active-bookmark').removeClass('hidden')
-						$('.inactive-bookmark').addClass('hidden')
-					}
-				})
-				.catch((e) => {
-					window.alert('Error')
-					console.log(e)
-				})
-		})
-
-		$('.active-bookmark').on('click', () => {
-			axios.delete(`/books/${bookId}/bookmark`)
-				.then((response) => {
-					if (response.data.status === 'ok') {
-						$('.active-bookmark').addClass('hidden')
-						$('.inactive-bookmark').removeClass('hidden')
-					}
-				})
-				.catch((e) => {
-					window.alert('Error')
-					console.log(e)
-				})
-		})
+		listenInactiveBookmarkEvent(bookId)
+		listenActiveBookmarkEvent(bookId)
 })
