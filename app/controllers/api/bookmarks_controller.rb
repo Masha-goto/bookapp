@@ -1,4 +1,4 @@
-class BookmarksController < ApplicationController
+class Api::BookmarksController < Api::ApplicationController
 	before_action :authenticate_user!
 	def show
 		book = Book.find(params[:book_id])

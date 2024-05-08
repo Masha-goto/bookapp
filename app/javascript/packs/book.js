@@ -18,7 +18,7 @@ document.addEventListener('turbolinks:load', () => {
 	if (!dataset){ return false; }
 	const bookId = dataset.bookId
 
-	axios.get(`/books/${bookId}/bookmark`)
+	axios.get(`/api/books/${bookId}/bookmark`)
 		.then((response) => {
 			const hasBookmarked = response.data.hasBookmarked
 			handleBookmarkDisplay(hasBookmarked)
