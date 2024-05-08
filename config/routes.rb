@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   resource :profile, only: [:show, :edit, :update]
   resources :bookmarklists, only: [:index]
+
+  get 'search', to: 'searches#index'
 end

@@ -1,4 +1,6 @@
 .container
+	.d-flex.justify-content-center.mb-2
+	= render "searches/form"
 	- @books.each do |book|
 		= render 'commons/book', book: book
 	= link_to new_book_path do

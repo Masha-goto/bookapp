@@ -15,6 +15,7 @@ const handleBookmarkDisplay = (hasBookmarked) => {
 
 document.addEventListener('turbolinks:load', () => {
 	const dataset = $('#book-show').data()
+	if (!dataset){ return false; }
 	const bookId = dataset.bookId
 
 	axios.get(`/books/${bookId}/bookmark`)
