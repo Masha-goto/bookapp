@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'books#index'
 
   resources :books do
-    resource :bookmark, only: [:create, :destroy]
+    resource :bookmark, only: [:show, :create, :destroy]
   end
 
   resource :profile, only: [:show, :edit, :update]
