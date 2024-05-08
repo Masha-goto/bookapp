@@ -3,7 +3,7 @@ import axios from 'modules/axios'
 
 const listenInactiveBookmarkEvent = (bookId) => {
 	$('.inactive-bookmark').on('click', () => {
-		axios.post(`/books/${bookId}/bookmark`)
+		axios.post(`/api/books/${bookId}/bookmark`)
 			.then((response) => {
 				if (response.data.status === 'ok') {
 					$('.active-bookmark').removeClass('hidden')
@@ -19,7 +19,7 @@ const listenInactiveBookmarkEvent = (bookId) => {
 
 const listenActiveBookmarkEvent = (bookId) => {
 	$('.active-bookmark').on('click', () => {
-		axios.delete(`/books/${bookId}/bookmark`)
+		axios.delete(`/api/books/${bookId}/bookmark`)
 			.then((response) => {
 				if (response.data.status === 'ok') {
 					$('.active-bookmark').addClass('hidden')
