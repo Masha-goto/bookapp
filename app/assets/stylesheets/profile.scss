@@ -30,7 +30,7 @@ $image_size: 56px;
       font-size: 12px;
       border-radius: 4px;
       border: 1px solid $primary-color;
-      font-weight: bold;
+      font-weight: 700;
       padding: 0px 8px;
 
       a {
@@ -40,12 +40,12 @@ $image_size: 56px;
 
     &_name {
       display: flex;
-      margin-bottom: 8px;
+      margin-top: 13px;
     }
 
     &_displayName {
       font-size: 18px;
-      font-weight: bold;
+      font-weight: 700;
       margin-right: 8px;
     }
   }
