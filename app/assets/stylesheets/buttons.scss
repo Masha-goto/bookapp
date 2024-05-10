@@ -5,17 +5,21 @@
   border: none;
   width: 100%;
   text-align: center;
-  color: white;
+  color: #fff;
   padding: 16px 0;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .btn-secondary {
-	background-color: white;
+	background-color: #fff;
 	border: solid 1px $primary-color;
 	width: 100%;
 	text-align: center;
 	color: $primary-color;
 	padding: 16px 0;
-	font-weight: bold;
+	font-weight: 700;
+}
+
+.position {
+	margin-top: 10px;
 }

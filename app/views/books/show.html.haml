@@ -18,9 +18,9 @@
 	.article_content
 		= @book.content
 	- if user_signed_in?
-		.article_heart.hidden.active-bookmark
+		.article_bookmark.hidden.active-bookmark
 			= image_tag 'bookmark-active.svg'
-		.article_heart.hidden.inactive-bookmark
+		.article_bookmark.hidden.inactive-bookmark
 			= image_tag 'bookmark.svg'
 
 = javascript_pack_tag 'book'

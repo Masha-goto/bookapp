@@ -1,5 +1,4 @@
 .container
-	.d-flex.justify-content-center.mb-2
 	= render "searches/form"
 	- @books.each do |book|
 		= render 'commons/book', book: book

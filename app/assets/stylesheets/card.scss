@@ -1,27 +1,28 @@
 @import './variables';
-$heart-size: 16px;
+$bookmark-size: 16px;
 $avatar-size: 32px;
 
 .card {
-  background-color: white;
+  background-color: #fff;
   margin: 16px 0;
   cursor: pointer;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 
-  &_heart {
+  &_bookmark {
     display: flex;
+		margin-top: 5px;
 
     img {
-      width: $heart-size;
-      height: $heart-size;
+      width: $bookmark-size;
+      height: $bookmark-size;
     }
 
     span {
       margin-left: 8px;
       font-size: 12px;
-      font-weight: bold;
+      font-weight: 700;
       color: $primary-color;
-      line-height: $heart-size;
+      line-height: $bookmark-size;
     }
   }
 
@@ -40,7 +41,7 @@ $avatar-size: 32px;
   }
 
   &_content {
-    padding: 16px 16px;
+    padding: 16px;
   }
 
   &_image {
