@@ -1,0 +1,16 @@
+{
+  "name": "book app",
+  "description": "This is bookapp",
+  "keywords": [],
+  "website": "",
+  "repository": "https://github.com/Masha-goto/bookapp",
+  "env": {},
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "buildpacks": [{
+    "url": "heroku/nodejs"
+  }, {
+    "url": "heroku/ruby"
+  }]
+}
